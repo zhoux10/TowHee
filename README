@@ -1,1 +1,7 @@
 TowHee is a beautiful small bird :)
+
+** Setup **
+
+- sudo npm install
+- bower install
+- node server.js
