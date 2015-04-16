@@ -1,12 +1,12 @@
 {
 	"name": "TowHee",
 	"description": "Find volunteers near you! Built with <3 using MEANJS",
-	"version": "0.1",
+	"version": "0.0.1",
 	"private": false,
-	"author": "https://github.com/meanjs/mean/graphs/contributors",
+	"author": "Suprita Shankar",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/meanjs/mean.git"
+		"url": "https://github.com/supritashankar/TowHee.git"
 	},
 	"engines": {
 		"node": ">=0.10.28",

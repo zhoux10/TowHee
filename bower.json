@@ -1,6 +1,6 @@
 {
 	"name": "TowHee",
-	"version": "0.1",
+	"version": "0.0.1",
 	"description": "Find volunteers near you! Built with <3 using MEANJS",
 	"dependencies": {
 		"bootstrap": "~3",
