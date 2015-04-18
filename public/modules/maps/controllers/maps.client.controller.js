@@ -6,31 +6,35 @@ angular.module('maps').controller('MapsController', ['$scope', '$stateParams', '
 		$scope.authentication = Authentication;
 
 		var data = [{
-		  eventName : 'Animal Shelter',
-		  description : 'abc',
-		  id : 1,
-		  locationlat : 37.315,
-		  locationlon : -121.89
-		},
-		{
-		  eventName : 'Volunteer 2',
-		  description : 'abc',
-		  id : 2,
-		  locationlat : 38.32,
-		  locationlon : -125.89
-		},
-		{
-		  eventName : 'Animal Shelter',
-		  description : 'abc',
-		  id : 3,
-		  locationlat : 40.32,
-		  locationlon : -125.89
-		}
-		];
-
-		$scope.map = {
-			center: { latitude: 45, longitude: -73 }, zoom: 8
-		};
+									title : 'Sunnyvale',
+									content : 'Animal Shelter Volunteer April 18 2015 10 am - 4 pm , http://www.animalshelter.org',
+									latitude : 37.36,
+									longitude : -121.886
+								},
+								{
+									title : 'San Jose',
+									content : 'Women Who Code Volunteer',
+									latitude : 37.3760,
+									longitude : -121.9209
+								},
+								{
+									title : 'Chicago',
+									content : 'This is the second best city in the world!',
+									latitude : 41.8819,
+									longitude : -87.6278
+								},
+								{
+									title : 'Los Angeles',
+									content : 'This city is live!',
+									latitude : 34.0500,
+									longitude : -118.2500
+								},
+								{
+									title : 'Las Vegas',
+									content : 'Sin City...\'nuff said!',
+									latitude : 36.0800,
+									longitude : -115.1522
+								}];
 
     var mapOptions = {
         zoom: 4,
