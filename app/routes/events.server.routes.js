@@ -8,10 +8,9 @@ var users = require('../../app/controllers/users.server.controller'),
 
 module.exports = function(app) {
 	// Article Routes
-	app.route('/eventmodels')
+	app.route('/events')
 		.get(events.list)
 		.post(users.requiresLogin, events.create);
-
 	
 	app.route('/events/:eventId')
 		.get(events.read)
