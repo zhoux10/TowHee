@@ -8,7 +8,7 @@ TowHee is a beautiful small bird :)
 - brew install mongodb
 
 ** Start up server**
-- sudo mangod
+- sudo mongod
 - node server.js (in separate tab)
 test
 
