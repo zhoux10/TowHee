@@ -89,13 +89,13 @@ angular.module('maps').controller('MapsController', ['$scope', '$stateParams', '
 
         var marker = new google.maps.Marker({
             map: $scope.map,
-            position: new google.maps.LatLng(info.latitude, info.longitude),
+            position: new google.maps.LatLng(info.location[0], info.location[1]),
             title: info.title
         });
         marker.content = '<div class="infoWindowContent">' + info.content + '</div>';
 
 				// fit this marker in the map
-				var myLatLng = new google.maps.LatLng(info.latitude, info.longitude);
+				var myLatLng = new google.maps.LatLng(info.location[0], info.location[1]);
 				latlngbounds.extend(myLatLng);
 
         google.maps.event.addListener(marker, 'click', function(){
@@ -115,7 +115,7 @@ angular.module('maps').controller('MapsController', ['$scope', '$stateParams', '
 		$scope.map.fitBounds(latlngbounds);
 
 		var input = document.getElementsByClassName('zipcode-input')[0];
-		var searchBox = new google.maps.places.SearchBox((input));
+		var searchBox = new google.maps.places.SearchBox(input);
 
 
     $scope.openInfoWindow = function(e, selectedMarker){
@@ -126,7 +126,7 @@ angular.module('maps').controller('MapsController', ['$scope', '$stateParams', '
 		google.maps.event.addListener(searchBox, 'places_changed', function() {
 			var places = searchBox.getPlaces();
 
-			if (places.length == 0) {
+			if (places.length === 0) {
 				return;
 			}
 
@@ -135,5 +135,6 @@ angular.module('maps').controller('MapsController', ['$scope', '$stateParams', '
 			$scope.map.setCenter(new google.maps.LatLng(latitude, longitude));
 			$scope.map.setZoom(6);
 		});
+
 	}
 ]);
