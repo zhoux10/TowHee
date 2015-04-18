@@ -7,7 +7,7 @@ var mongoose = require('mongoose'),
 	Schema = mongoose.Schema;
 
 /**
- * Article Schema
+ * Event Schema
  */
 var EventSchema = new Schema({
 	created: {
@@ -25,13 +25,9 @@ var EventSchema = new Schema({
 		default: '',
 		trim: true
 	},
-	latitude: {
-		type:String,
-		default:''
-	},
-	longitude: {
-		type:String,
-		default:''
+	location: {
+		type:Array,
+		default: []
 	},
 	user: {
 		type: Schema.ObjectId,
