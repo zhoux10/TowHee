@@ -17,68 +17,57 @@ angular.module('maps').controller('MapsController', ['$scope', '$stateParams', '
 		var data = [{
 									title : 'Sunnyvale',
 									content : 'Animal Shelter Volunteer April 18 2015 10 am - 4 pm , http://www.animalshelter.org',
-									latitude : 37.36,
-									longitude : -121.886
+									location : [37.36, -121.886]
 								},
 								{
 									title : 'San Jose',
 									content : 'Women Who Code Volunteer',
-									latitude : 37.3760,
-									longitude : -121.9209
+									location : [37.3760, -121.9209]
 								},
 								{
 									title : 'Chicago',
 									content : 'This is the second best title in the world!',
-									latitude : 41.8819,
-									longitude : -87.6278
+									location : [41.8819, -87.6278]
 								},
 								{
 									title : 'Los Angeles',
 									content : 'This title is live!',
-									latitude : 34.0500,
-									longitude : -118.2500
+									location : [34.0500, -118.2500]
 								},
 								{
 									title : 'Las Vegas',
 									content : 'Sin City...\'nuff said!',
-									latitude : 36.0800,
-									longitude : -115.1522
+									location : [36.0800, -115.1522]
 								},
 								{
 									title : 'Sunnyvale',
 									content : 'Animal Shelter Volunteer April 18 1 pm - 4pm',
-									latitude : 37.36,
-									longitude : -121.886
+									location : [37.36, -121.886]
 								},
 								{
 									title : 'San Jose',
 									content : 'Women Who Code Volunteer April 18 9 AM-4pm',
-									latitude : 37.37,
-									longitude : -121.92
+									location : [37.37, -121.92]
 								},
 								{
 									title : 'San Jose',
 									content : 'American Red Cross Blood donation Volunteer April 18 2 pm - 4 pm',
-									latitude : 37.3708,
-									longitude : -121.96
+									location : [37.3708, -121.96]
 								},
 								{
 									title : 'San Jose',
 									content : 'Environmental Volunteer',
-									latitude : 37.34,
-									longitude : -121.947
+									location : [37.34, -121.947]
 								},
 								{
 									title : 'Sunnyvale',
 									content : 'Raft Volunteer ',
-									latitude : 37.34,
-									longitude : -121.947
+									location : [37.34, -121.947]
 								},
 								{
 									title : 'International Travel',
 									content : 'Raft Volunteer ',
-									latitude : 36.703660,
-									longitude : 98.964844
+									location : [36.703660, 98.964844]
 								}
 								];
 
