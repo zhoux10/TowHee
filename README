@@ -3,6 +3,16 @@ TowHee is a beautiful small bird :)
 ** Setup **
 
 - sudo npm install
+- npm install -g bower
 - bower install
-- node server.js
+- brew install mongodb
+
+** Start up server**
+- sudo mongod
+- node server.js (in separate tab)
 test
+
+** Troubleshooting **
+- if error ```[initandlisten] exception in initAndListen: 29 Data directory /data/db not found```
+  - sudo mkdir -p /data/db/
+  - sudo chown `id -u` /data/db
