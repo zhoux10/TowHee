@@ -8,6 +8,7 @@ angular.module('maps').controller('MapsController', ['$scope', '$stateParams', '
          navigator.geolocation.getCurrentPosition(function(position){
          $scope.$apply(function(){
          $scope.position = position;
+         $scope.map.position = position;
          });
         });
         }
