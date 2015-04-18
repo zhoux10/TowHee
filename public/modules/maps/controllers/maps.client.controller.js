@@ -133,7 +133,7 @@ angular.module('maps').controller('MapsController', ['$scope', '$stateParams', '
 			var longitude = places[0].geometry.location.lng(),
 					latitude = places[0].geometry.location.lat();
 			$scope.map.setCenter(new google.maps.LatLng(latitude, longitude));
-			$scope.map.setZoom(6);
+			$scope.map.setZoom(12);
 		});
 
 	}
