@@ -19,13 +19,13 @@ angular.module('maps').controller('MapsController', ['$scope', '$stateParams', '
 								},
 								{
 									title : 'Chicago',
-									content : 'This is the second best city in the world!',
+									content : 'This is the second best title in the world!',
 									latitude : 41.8819,
 									longitude : -87.6278
 								},
 								{
 									title : 'Los Angeles',
-									content : 'This city is live!',
+									content : 'This title is live!',
 									latitude : 34.0500,
 									longitude : -118.2500
 								},
@@ -34,7 +34,44 @@ angular.module('maps').controller('MapsController', ['$scope', '$stateParams', '
 									content : 'Sin City...\'nuff said!',
 									latitude : 36.0800,
 									longitude : -115.1522
-								}];
+								},
+								{
+									title : 'Sunnyvale',
+									content : 'Animal Shelter Volunteer April 18 1 pm - 4pm',
+									latitude : 37.36,
+									longitude : -121.886
+								},
+								{
+									title : 'San Jose',
+									content : 'Women Who Code Volunteer April 18 9 AM-4pm',
+									latitude : 37.37,
+									longitude : -121.92
+								},
+								{
+									title : 'San Jose',
+									content : 'American Red Cross Blood donation Volunteer April 18 2 pm - 4 pm',
+									latitude : 37.3708,
+									longitude : -121.96
+								},
+								{
+									title : 'San Jose',
+									content : 'Environmental Volunteer',
+									latitude : 37.34,
+									longitude : -121.947
+								},
+								{
+									title : 'Sunnyvale',
+									content : 'Raft Volunteer ',
+									latitude : 37.34,
+									longitude : -121.947
+								},
+								{
+									title : 'International Travel',
+									content : 'Raft Volunteer ',
+									latitude : 36.703660,
+									longitude : 98.964844
+								}
+								];
 
     var mapOptions = {
         zoom: 4,
@@ -48,6 +85,8 @@ angular.module('maps').controller('MapsController', ['$scope', '$stateParams', '
 
     var infoWindow = new google.maps.InfoWindow();
 
+		var latlngbounds = new google.maps.LatLngBounds();
+
     var createMarker = function (info){
 
         var marker = new google.maps.Marker({
@@ -56,6 +95,10 @@ angular.module('maps').controller('MapsController', ['$scope', '$stateParams', '
             title: info.title
         });
         marker.content = '<div class="infoWindowContent">' + info.content + '</div>';
+
+				// fit this marker in the map
+				var myLatLng = new google.maps.LatLng(info.latitude, info.longitude);
+				latlngbounds.extend(myLatLng);
 
         google.maps.event.addListener(marker, 'click', function(){
             infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
@@ -69,6 +112,9 @@ angular.module('maps').controller('MapsController', ['$scope', '$stateParams', '
     for (var i = 0; i < data.length; i++){
         createMarker(data[i]);
     }
+
+		$scope.map.setCenter(latlngbounds.getCenter());
+		$scope.map.fitBounds(latlngbounds);
 
     $scope.openInfoWindow = function(e, selectedMarker){
         e.preventDefault();
