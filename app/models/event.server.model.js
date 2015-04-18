@@ -9,7 +9,7 @@ var mongoose = require('mongoose'),
 /**
  * Article Schema
  */
-var VolunteerEventSchema = new Schema({
+var EventSchema = new Schema({
 	created: {
 		type: Date,
 		default: Date.now
@@ -31,4 +31,4 @@ var VolunteerEventSchema = new Schema({
 	}
 });
 
-mongoose.model('VolunteerEvent', VolunteerEventSchema);
+mongoose.model('Event', EventSchema);

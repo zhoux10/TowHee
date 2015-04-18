@@ -12,11 +12,12 @@ module.exports = function(app) {
 		.get(events.list)
 		.post(users.requiresLogin, events.create);
 
+	
 	app.route('/events/:eventId')
 		.get(events.read)
-		.put(users.requiresLogin, events.hasAuthorization, s.update)
+		.put(users.requiresLogin, events.hasAuthorization, events.update)
 		.delete(users.requiresLogin, events.hasAuthorization, events.delete);
 
 	// Finish by binding the article middleware
-	app.param('eventId', events.articleByID);
+	app.param('eventId', events.eventmodelByID);
 };
