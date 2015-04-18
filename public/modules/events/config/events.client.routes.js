@@ -12,15 +12,14 @@ angular.module('articles').config(['$stateProvider',
 		state('createEvent', {
 			url: '/events/create',
 			templateUrl: 'modules/events/views/create-event.client.view.html'
-		});
-		/*
-		state('viewArticle', {
-			url: '/articles/:articleId',
-			templateUrl: 'modules/articles/views/view-article.client.view.html'
 		}).
-		state('editArticle', {
-			url: '/articles/:articleId/edit',
-			templateUrl: 'modules/articles/views/edit-article.client.view.html'
-		});*/
+		state('viewEvent', {
+			url: '/events/:eventId',
+			templateUrl: 'modules/events/views/view-event.client.view.html'
+		}).
+		state('editEvent', {
+			url: '/events/:eventId/edit',
+			templateUrl: 'modules/events/views/edit-event.client.view.html'
+		});
 	}
 ]);
