@@ -116,9 +116,26 @@ angular.module('maps').controller('MapsController', ['$scope', '$stateParams', '
 		$scope.map.setCenter(latlngbounds.getCenter());
 		$scope.map.fitBounds(latlngbounds);
 
+		var input = document.getElementsByClassName('zipcode-input')[0];
+		var searchBox = new google.maps.places.SearchBox((input));
+
+
     $scope.openInfoWindow = function(e, selectedMarker){
         e.preventDefault();
         google.maps.event.trigger(selectedMarker, 'click');
     };
+
+		google.maps.event.addListener(searchBox, 'places_changed', function() {
+			var places = searchBox.getPlaces();
+
+			if (places.length == 0) {
+				return;
+			}
+
+			var longitude = places[0].geometry.location.lng(),
+					latitude = places[0].geometry.location.lat();
+			$scope.map.setCenter(new google.maps.LatLng(latitude, longitude));
+			$scope.map.setZoom(6);
+		});
 	}
 ]);
