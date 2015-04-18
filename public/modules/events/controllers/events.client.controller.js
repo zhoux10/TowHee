@@ -1,7 +1,7 @@
 'use strict';
 
 // Articles controller
-angular.module('events').controller('EventsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Articles',
+angular.module('events').controller('EventsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Events',
 	function($scope, $stateParams, $location, Authentication, Events) {
 		$scope.authentication = Authentication;
 
@@ -55,7 +55,7 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 
 		// Find a list of Articles
 		$scope.find = function() {
-			$scope.eventmodels = Events.query();
+			$scope.events = Events.query();
 		};
 
 		// Find existing Article

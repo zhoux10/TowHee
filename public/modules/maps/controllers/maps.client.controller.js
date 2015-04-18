@@ -3,6 +3,15 @@
 // Articles controller
 angular.module('maps').controller('MapsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Articles',
 	function($scope, $stateParams, $location, Authentication, Maps) {
+
+ 	if (navigator.geolocation) {
+         navigator.geolocation.getCurrentPosition(function(position){
+         $scope.$apply(function(){
+         $scope.position = position;
+         $scope.map.position = position;
+         });
+        });
+        }
 		$scope.authentication = Authentication;
 
 		var data = [{

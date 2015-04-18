@@ -25,6 +25,14 @@ var EventSchema = new Schema({
 		default: '',
 		trim: true
 	},
+	latitude: {
+		type:String,
+		default:''
+	},
+	longitude: {
+		type:String,
+		default:''
+	},
 	user: {
 		type: Schema.ObjectId,
 		ref: 'User'

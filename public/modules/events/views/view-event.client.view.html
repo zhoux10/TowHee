@@ -1,9 +1,9 @@
-<section data-ng-controller="ArticlesController" data-ng-init="findOne()">
+<section data-ng-controller="EventsController" data-ng-init="findOne()">
 	<div class="page-header">
-		<h1 data-ng-bind="event.title"></h1>
+		<h1 data-ng-bind="eventmodel.title"></h1>
 	</div>
-	<div class="pull-right" data-ng-show="authentication.user._id == event.user._id">
-		<a class="btn btn-primary" href="/#!/events/{{event._id}}/edit">
+	<div class="pull-right" data-ng-show="authentication.user._id == eventmodel.user._id">
+		<a class="btn btn-primary" href="/#!/events/{{eventmodel._id}}/edit">
 			<i class="glyphicon glyphicon-edit"></i>
 		</a>
 		<a class="btn btn-primary" data-ng-click="remove();">
@@ -13,10 +13,10 @@
 	<small>
 		<em class="text-muted">
 			Posted on
-			<span data-ng-bind="event.created | date:'mediumDate'"></span>
+			<span data-ng-bind="eventmodel.created | date:'mediumDate'"></span>
 			by
-			<span data-ng-bind="event.user.displayName"></span>
+			<span data-ng-bind="eventmodel.user.displayName"></span>
 		</em>
 	</small>
-	<p class="lead" data-ng-bind="event.content"></p>
+	<p class="lead" data-ng-bind="eventmodel.conteant"></p>
 </section>
