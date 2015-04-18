@@ -1,11 +1,11 @@
 'use strict';
 
-// Configuring the Articles module
-angular.module('articles').run(['Menus',
+// Configuring the Maps module
+angular.module('maps').run(['Menus',
 	function(Menus) {
 		// Set top bar menu items
-		Menus.addMenuItem('topbar', 'Articles', 'articles', 'dropdown', '/articles(/create)?');
-		Menus.addSubMenuItem('topbar', 'articles', 'List Articles', 'articles');
-		Menus.addSubMenuItem('topbar', 'articles', 'New Article', 'articles/create');
+		Menus.addMenuItem('topbar', 'Maps', 'maps', 'dropdown', '/maps(/create)?');
+		Menus.addSubMenuItem('topbar', 'maps', 'List Maps', 'maps');
+		Menus.addSubMenuItem('topbar', 'maps', 'New Map', 'maps/create');
 	}
 ]);
