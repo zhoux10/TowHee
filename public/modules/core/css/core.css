@@ -20,8 +20,10 @@ body.ng-cloak
 }
 
 #map {
-    height:500px;
-    width:500px;
+    height:100%;
+    width:100%;
+		position: absolute;
+		left: 0;
 }
 .infoWindowContent {
     font-size:  14px !important;

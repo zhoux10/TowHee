@@ -52,10 +52,10 @@ angular.module('maps').controller('MapsController', ['$scope', '$stateParams', '
 
         var marker = new google.maps.Marker({
             map: $scope.map,
-            position: new google.maps.LatLng(info.locationlat, info.locationlon),
-            title: info.eventName
+            position: new google.maps.LatLng(info.latitude, info.longitude),
+            title: info.title
         });
-        marker.content = '<div class="infoWindowContent">' + info.description + '</div>';
+        marker.content = '<div class="infoWindowContent">' + info.content + '</div>';
 
         google.maps.event.addListener(marker, 'click', function(){
             infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
