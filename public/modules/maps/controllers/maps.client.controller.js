@@ -5,12 +5,28 @@ angular.module('maps').controller('MapsController', ['$scope', '$stateParams', '
 	function($scope, $stateParams, $location, Authentication, Maps) {
 		$scope.authentication = Authentication;
 
-		$scope.getData = function () {
-			$http.get('/maps/eventdata').success(function(data,status){  // get data and status of it
-				console.log(data);
-				$scope.formdata = data;
-			});
-		};
+		var data = [{
+		  eventName : 'Animal Shelter',
+		  description : 'abc',
+		  id : 1,
+		  locationlat : 37.315,
+		  locationlon : -121.89
+		},
+		{
+		  eventName : 'Volunteer 2',
+		  description : 'abc',
+		  id : 2,
+		  locationlat : 38.32,
+		  locationlon : -125.89
+		},
+		{
+		  eventName : 'Animal Shelter',
+		  description : 'abc',
+		  id : 3,
+		  locationlat : 40.32,
+		  locationlon : -125.89
+		}
+		];
 
 		$scope.map = {
 			center: { latitude: 45, longitude: -73 }, zoom: 8
@@ -32,10 +48,10 @@ angular.module('maps').controller('MapsController', ['$scope', '$stateParams', '
 
         var marker = new google.maps.Marker({
             map: $scope.map,
-            position: new google.maps.LatLng(info.lat, info.long),
-            title: info.city
+            position: new google.maps.LatLng(info.locationlat, info.locationlon),
+            title: info.eventName
         });
-        marker.content = '<div class="infoWindowContent">' + info.desc + '</div>';
+        marker.content = '<div class="infoWindowContent">' + info.description + '</div>';
 
         google.maps.event.addListener(marker, 'click', function(){
             infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
@@ -46,8 +62,8 @@ angular.module('maps').controller('MapsController', ['$scope', '$stateParams', '
 
     };
 
-    for (i = 0; i < cities.length; i++){
-        createMarker(cities[i]);
+    for (var i = 0; i < data.length; i++){
+        createMarker(data[i]);
     }
 
     $scope.openInfoWindow = function(e, selectedMarker){
