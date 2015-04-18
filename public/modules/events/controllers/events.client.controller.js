@@ -55,7 +55,7 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 
 		// Find a list of Articles
 		$scope.find = function() {
-			$scope.eventmodels = Events.query();
+			$scope.events = Events.query();
 		};
 
 		// Find existing Article
