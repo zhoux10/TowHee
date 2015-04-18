@@ -91,7 +91,7 @@ exports.eventmodelByID = function(req, res, next, id) {
 
 	if (!mongoose.Types.ObjectId.isValid(id)) {
 		return res.status(400).send({
-			message: 'Article is invalid'
+			message: 'Event is invalid'
 		});
 	}
 
@@ -99,7 +99,7 @@ exports.eventmodelByID = function(req, res, next, id) {
 		if (err) return next(err);
 		if (!eventmodel) {
 			return res.status(404).send({
-				message: 'Article not found'
+				message: 'Event not found'
 			});
 		}
 		req.eventmodel = eventmodel;
