@@ -110,7 +110,6 @@ exports.eventsnearby = function(req, res){
 	var lat,lng;
 	lat = req.query.lat;
 	lng = req.query.lng;
-	console.log(lng,lat);
 
   Event.find({location :
         { $near :
@@ -120,7 +119,7 @@ exports.eventsnearby = function(req, res){
                 coordinates : [lng, lat] },
              $maxDistance : 5000
            }
-        }}, function(err,response)
+       }}, function(err,response)
     {
       var data = response;
 
@@ -129,7 +128,6 @@ exports.eventsnearby = function(req, res){
       console.log(data);
       console.log(lat,lng);
       */
-      console.log(data);
       res.send(data);
   });
 };
