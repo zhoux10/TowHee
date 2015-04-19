@@ -15,7 +15,6 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 				var latitude = googlePlaces[0].geometry.location.lat();
 
 				location = [longitude, latitude];
-				alert(location);
 		    }
 			// Create new Article object
 			var eventmodel = new Events({
