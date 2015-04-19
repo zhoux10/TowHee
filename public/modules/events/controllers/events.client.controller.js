@@ -10,12 +10,12 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 
 			var googlePlaces = searchBox.getPlaces();
             var location;
-
             if(googlePlaces[0]) {
             	var longitude = googlePlaces[0].geometry.location.lng();
 				var latitude = googlePlaces[0].geometry.location.lat();
 
 				location = [longitude, latitude];
+				alert(location);
 		    }
 			// Create new Article object
 			var eventmodel = new Events({
@@ -78,6 +78,9 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 		};
 
 		var input = document.getElementById('place');
-        var searchBox = new google.maps.places.SearchBox(input);
+		if(input)
+		{
+        	var searchBox = new google.maps.places.SearchBox(input);
+        }
 	}
 ]);

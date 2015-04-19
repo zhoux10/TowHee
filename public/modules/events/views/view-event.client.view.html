@@ -1,6 +1,7 @@
 <section data-ng-controller="EventsController" data-ng-init="findOne()">
 	<div class="page-header">
 		<h1 data-ng-bind="eventmodel.title"></h1>
+		
 	</div>
 	<div class="pull-right" data-ng-show="authentication.user._id == eventmodel.user._id">
 		<a class="btn btn-primary" href="/#!/events/{{eventmodel._id}}/edit">
@@ -16,6 +17,7 @@
 			<span data-ng-bind="eventmodel.created | date:'mediumDate'"></span>
 			by
 			<span data-ng-bind="eventmodel.user.displayName"></span>
+			
 		</em>
 	</small>
 	<p class="lead" data-ng-bind="eventmodel.conteant"></p>
