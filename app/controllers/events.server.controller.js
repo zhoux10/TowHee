@@ -107,6 +107,26 @@ exports.eventmodelByID = function(req, res, next, id) {
 	});
 };
 
+exports.eventsnearby = function(req, res){
+	var lat,lng;
+	lat = req.query.lat;
+	lng = req.query.lng;
+  Event.find({location :
+        { $near :
+           {
+             $geometry : {
+                type : "Point" ,
+                coordinates : [lng, lat] },
+             $maxDistance : 5000
+           }
+       }}, function(err,response)
+    {
+      var data = response;
+      console.log('I am here!!!!')
+      console.log(data);
+      res.send(data);
+  });
+};
 /**
  * Article authorization middleware
  */

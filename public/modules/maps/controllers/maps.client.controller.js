@@ -13,18 +13,12 @@ angular.module('maps').controller('MapsController', ['$scope', '$stateParams', '
         });
         }
 		$scope.authentication = Authentication;
-		
-		$scope.events = Events.query( { location :
-       { $near :
-         { $geometry : {
-               type : "Point" ,
-                coordinates : [-121.88, 37.38] },
-             $maxDistance : 5000
-             }
-        }
-     	});	
+	
+
+		//$scope.events = Events.query();
 		console.log('I am in events');
-		console.log($scope.events);
+		$scope.results = Events.eventsnearby(100,200);
+		console.log($scope.results);
 
 		var data = [{
 									title : 'Sunnyvale',

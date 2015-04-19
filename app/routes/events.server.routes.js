@@ -11,6 +11,9 @@ module.exports = function(app) {
 	app.route('/events')
 		.get(events.list)
 		.post(users.requiresLogin, events.create);
+
+	app.route('/events/nearby')
+		.get(events.eventsnearby);	
 	
 	app.route('/events/:eventId')
 		.get(events.read)
