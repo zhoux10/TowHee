@@ -11,10 +11,12 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 			var googlePlaces = searchBox.getPlaces();
             var location;
 
-            var longitude = googlePlaces[0].geometry.location.lng();
-			var latitude = googlePlaces[0].geometry.location.lat();
+            if(googlePlaces[0]) {
+            	var longitude = googlePlaces[0].geometry.location.lng();
+				var latitude = googlePlaces[0].geometry.location.lat();
 
-			location = [longitude, latitude];
+				location = [longitude, latitude];
+		    }
 			// Create new Article object
 			var eventmodel = new Events({
 				title: this.title,
@@ -22,7 +24,6 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 				location: location
 			});
 
-			
 
 			// Redirect after save
 			eventmodel.$save(function(response) {
