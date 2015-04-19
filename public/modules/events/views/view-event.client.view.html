@@ -3,6 +3,17 @@
 		<h1 data-ng-bind="eventmodel.title"></h1>
 		
 	</div>
+	<div class="event-description">
+		<p>Description</p>
+		<p data-ng-bind="eventmodel.content">
+			
+		</p>
+
+	</div>
+	<div id="map" class="event-map">
+	</div>
+
+	
 	<div class="pull-right" data-ng-show="authentication.user._id == eventmodel.user._id">
 		<a class="btn btn-primary" href="/#!/events/{{eventmodel._id}}/edit">
 			<i class="glyphicon glyphicon-edit"></i>
