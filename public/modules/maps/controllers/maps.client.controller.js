@@ -16,9 +16,9 @@ angular.module('maps').controller('MapsController', ['$scope', '$stateParams', '
 	
 
 		//$scope.events = Events.query();
-		console.log('I am in events');
-		$scope.results = Events.eventsnearby(100,200);
-		console.log($scope.results);
+		//console.log('I am in events');
+		//$scope.results = Events.eventsnearby(100,200);
+		//console.log($scope.results);
 
 		var data = [{
 									title : 'Sunnyvale',
