@@ -88,7 +88,7 @@ exports.list = function(req, res) {
  * Event middleware
  */
 exports.eventmodelByID = function(req, res, next, id) {
-
+	console.log('I am here!!!!!!!!!!!');
 	if (!mongoose.Types.ObjectId.isValid(id)) {
 		return res.status(400).send({
 			message: 'Event is invalid'
@@ -106,11 +106,11 @@ exports.eventmodelByID = function(req, res, next, id) {
 		next();
 	});
 };
-
 exports.eventsnearby = function(req, res){
 	var lat,lng;
 	lat = req.query.lat;
 	lng = req.query.lng;
+
   Event.find({location :
         { $near :
            {
@@ -122,8 +122,12 @@ exports.eventsnearby = function(req, res){
        }}, function(err,response)
     {
       var data = response;
+
+      /*
       console.log('I am here!!!!')
       console.log(data);
+      console.log(lat,lng);
+      */
       res.send(data);
   });
 };

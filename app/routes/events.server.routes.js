@@ -12,7 +12,7 @@ module.exports = function(app) {
 		.get(events.list)
 		.post(users.requiresLogin, events.create);
 
-	app.route('/events/nearby')
+	app.route('/nearby')
 		.get(events.eventsnearby);	
 	
 	app.route('/events/:eventId')
