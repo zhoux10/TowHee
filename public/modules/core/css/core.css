@@ -40,3 +40,13 @@ h2 {
     margin-bottom:0;
     margin-top: 0;
 }
+
+.event-description { 
+
+border-radius: 25px;
+    border: 2px solid #8AC007;
+    padding: 20px; 
+    width: 800px;
+    height: 150px; 
+
+}
