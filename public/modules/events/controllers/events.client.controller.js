@@ -4,18 +4,19 @@
 angular.module('events').controller('EventsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Events',
 	function($scope, $stateParams, $location, Authentication, Events) {
 		$scope.authentication = Authentication;
-
+		var	searchBox;
 		// Create new Article
 		$scope.create = function() {
 
-			var googlePlaces = searchBox.getPlaces();
-            var location;
-            if (googlePlaces) {
-            	var longitude = googlePlaces[0].geometry.location.lng();
-				var latitude = googlePlaces[0].geometry.location.lat();
+			var googlePlaces = searchBox.getPlaces(),
+          location;
 
+      if(googlePlaces) {
+      	var longitude = googlePlaces[0].geometry.location.lng(),
+						latitude = googlePlaces[0].geometry.location.lat();
 				location = [longitude, latitude];
-		    }
+		   }
+
 			// Create new Article object
 			var eventmodel = new Events({
 				title: this.title,
@@ -77,9 +78,8 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 		};
 
 		var input = document.getElementById('place');
-		if(input)
-		{
-        	var searchBox = new google.maps.places.SearchBox(input);
-        }
+		if(input) {
+      searchBox = new google.maps.places.SearchBox(input);
+    }
 	}
 ]);
