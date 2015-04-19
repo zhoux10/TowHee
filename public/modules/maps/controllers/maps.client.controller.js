@@ -1,8 +1,8 @@
 'use strict';
 
 // Articles controller
-angular.module('maps').controller('MapsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Articles',
-	function($scope, $stateParams, $location, Authentication, Maps) {
+angular.module('maps').controller('MapsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Events',
+	function($scope, $stateParams, $location, Authentication, Events) {
 
  	if (navigator.geolocation) {
          navigator.geolocation.getCurrentPosition(function(position){
@@ -13,6 +13,18 @@ angular.module('maps').controller('MapsController', ['$scope', '$stateParams', '
         });
         }
 		$scope.authentication = Authentication;
+		
+		$scope.events = Events.query( { location :
+       { $near :
+         { $geometry : {
+               type : "Point" ,
+                coordinates : [-121.88, 37.38] },
+             $maxDistance : 5000
+             }
+        }
+     	});	
+		console.log('I am in events');
+		console.log($scope.events);
 
 		var data = [{
 									title : 'Sunnyvale',
