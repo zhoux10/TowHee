@@ -10,7 +10,7 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 
 			var googlePlaces = searchBox.getPlaces();
             var location;
-            if(googlePlaces[0]) {
+            if (googlePlaces) {
             	var longitude = googlePlaces[0].geometry.location.lng();
 				var latitude = googlePlaces[0].geometry.location.lat();
 
