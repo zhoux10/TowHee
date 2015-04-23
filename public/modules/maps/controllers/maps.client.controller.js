@@ -5,14 +5,24 @@ angular.module('maps').controller('MapsController', ['$http', '$scope', '$stateP
 	function($http, $scope, $stateParams, $location, Authentication, Events) {
 
  	if (navigator.geolocation) {
-         navigator.geolocation.getCurrentPosition(function(position){
-         $scope.$apply(function(){
-         $scope.position = position;
-         $scope.map.position = position;
-         });
+        navigator.geolocation.getCurrentPosition(function(position){
+        	$scope.$apply(function(){
+        		$scope.position = position;
+
+         		console.log('This is what I have reading from the browser');
+    			console.log($scope.position.coords);
+    			var latitude = $scope.position.coords.latitude;
+    			var longitude = $scope.position.coords.longitude;
+    			$http.get('http://localhost:3000/nearby?lng=' + longitude+ '&lat=' + latitude).success(function(data){
+					console.log(data);
+					$scope.createMap(data);
+
+				});
+        	});
         });
-        }
+	}
 		$scope.authentication = Authentication;
+		
 		//$scope.events = Events.query();
 		//console.log('I am in events');
 		//$scope.results = Events.eventsnearby(100,200);
@@ -61,12 +71,7 @@ angular.module('maps').controller('MapsController', ['$http', '$scope', '$stateP
 		$scope.map.setCenter(latlngbounds.getCenter());
 		$scope.map.fitBounds(latlngbounds);
     };
-
-    $http.get('http://localhost:3000/nearby?lng=-121.922&lat=37.37').success(function(data){
-			console.log(data);
-			$scope.createMap(data);
-
-	});
+    
 
 
     $scope.openInfoWindow = function(e, selectedMarker){
