@@ -10,7 +10,8 @@ TowHee is a beautiful small bird :)
 ** Start up server**
 - sudo mongod
 - node server.js (in separate tab)
-test
+
+** Testing **
 
 ** Troubleshooting **
 - if error ```[initandlisten] exception in initAndListen: 29 Data directory /data/db not found```
