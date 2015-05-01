@@ -58,7 +58,7 @@ angular.module('maps').controller('MapsController', ['$http', '$scope', '$stateP
         var marker = new google.maps.Marker({
             map: $scope.map,
             position: new google.maps.LatLng(info.location[1], info.location[0]),
-            title: info.title
+            title: "<a href='http://localhost:3000/#!/events/"+ info._id + "'>" + info.title + "</a>"
         });
         marker.content = '<div class="infoWindowContent">' + info.content + '</div>';
 
