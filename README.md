@@ -11,6 +11,9 @@ TowHee is a beautiful small bird :)
 - sudo mongod
 - node server.js (in separate tab)
 
+** Set up geometric index **
+- db.collection.createIndex({ location : "2dsphere" });
+
 ** Testing **
 - Run npm test
 

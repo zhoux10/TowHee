@@ -1,6 +1,14 @@
 <div ng-app="mapsApp" ng-controller="MapsController">
-    <input type="text" name="zipcode" class='zipcode-input'>
-    <div id="map"></div>
+  <div class="row">
+    <div class="col-xs-10 col-md-6">
+      <input id='pac-input' type="text" name="zipcode" class='zipcode-input controls'>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <input id='slider' type="range" value="5000" data-slider-min="0" data-slider-max="10000" data-slider-step="1" data-slider-value="-14" data-slider-orientation="vertical" data-slider-selection="after"data-slider-tooltip="show">
+    </div>
+  </div>
+    <div id="map">
+    </div>
     <div id="class" ng-repeat="marker in markers | orderBy : 'title'">
          <a href="#" ng-click="openInfoWindow($event, marker)">{{marker.title}}</a>
     </div>
