@@ -107,17 +107,19 @@ exports.eventmodelByID = function(req, res, next, id) {
 	});
 };
 exports.eventsnearby = function(req, res){
-	var lat,lng;
+	var lat,lng, radius;
 	lat = req.query.lat;
 	lng = req.query.lng;
+	radius = req.query.radius;
 
+	var maxD = radius * 1609.34;	
   Event.find({location :
         { $near :
            {
              $geometry : {
                 type : "Point" ,
                 coordinates : [lng, lat] },
-             $maxDistance : 5000
+             $maxDistance : maxD
            }
        }}, function(err,response)
     {
