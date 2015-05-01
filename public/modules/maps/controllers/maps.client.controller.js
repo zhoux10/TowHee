@@ -4,7 +4,7 @@
 angular.module('maps').controller('MapsController', ['$http', '$scope', '$stateParams', '$location', 'Authentication', 'Events',
 	function($http, $scope, $stateParams, $location, Authentication, Events) {
 
-
+		$scope.showSpinner = true;
 		$('#slider').on( 'click', function() {
 			var radius = document.getElementById('slider').value / 1000,
 					longitude = $scope.position.coords.longitude,
@@ -26,6 +26,7 @@ angular.module('maps').controller('MapsController', ['$http', '$scope', '$stateP
 	    			var longitude = $scope.position.coords.longitude;
 	    			$http.get('http://localhost:3000/nearby?lng=' + longitude+ '&lat=' + latitude).success(function(data){
 						$scope.createMap(data);
+						$scope.showSpinner = false;
 					});
 	    	});
 	    });
