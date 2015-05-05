@@ -4,7 +4,12 @@
       <input id='pac-input' type="text" name="zipcode" class='zipcode-input controls'>
     </div>
     <div class="col-xs-12 col-md-6">
-      <input id='slider' type="range" value="5000" min="0" max="10000">
+     <slider
+      ng-model="initialrad"
+      floor="1.00"
+      ceiling="10000.00"
+      step="1000.00">
+  </slider>
     </div>
   </div>
   <div ng-show="showSpinner"><div class="loader">Loading...</div></div>
