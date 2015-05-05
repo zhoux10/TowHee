@@ -74,12 +74,33 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 		$scope.findOne = function() {
 			$scope.eventmodel = Events.get({
 				eventId: $stateParams.eventId
+			}, function (event) {
+				$scope.createMap(event);
 			});
 		};
 
-		var input = document.getElementById('place');
-		if(input) {
-      searchBox = new google.maps.places.SearchBox(input);
-    }
+		$scope.createMap = function(event) {
+			var longitude = event.location[0],
+					latitude = event.location[1],
+					mapOptions = {
+						zoom: 12,
+						center: new google.maps.LatLng(latitude, longitude),
+						mapTypeId: google.maps.MapTypeId.TERRAIN
+					};
+
+			$scope.map = new google.maps.Map(document.getElementById('event-map'), mapOptions);
+			$scope.createMarker(longitude, latitude);
+		};
+
+		$scope.createMarker = function (longitude, latitude){
+	    var infoWindow = new google.maps.InfoWindow();
+			var marker = new google.maps.Marker({
+				map: $scope.map,
+				position: new google.maps.LatLng(latitude, longitude),
+				title: "<a href='https://www.google.com/maps/dir/Current+Location/" + latitude + "," + longitude + "'>Get Directions</a>"
+			});
+			infoWindow.setContent("<h2><a href='#' id='infoWindowContent>Get Directions</a></h2>");
+			infoWindow.open($scope.map, marker);
+		};
 	}
 ]);

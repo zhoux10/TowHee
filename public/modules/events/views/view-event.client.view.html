@@ -1,33 +1,52 @@
-<section data-ng-controller="EventsController" data-ng-init="findOne()">
-	<div class="page-header">
-		<h1 data-ng-bind="eventmodel.title"></h1>
-		
-	</div>
-	<div class="event-description">
-		<p>Description</p>
-		<p data-ng-bind="eventmodel.content">
-			
-		</p>
+<div class="container" data-ng-controller="EventsController" data-ng-init="findOne()">
+  <div class="event card">
+    <div class="event-body">
+      <div class="event-bio">
+        <div class="row">
+          <div class="col-md-5 text-center">
+              <img class="img-thumbnail md-margin-bottom-10" src="{{eventmodel.imageUrl}}" alt="{{eventmodel.title}}">
+          </div>
+          <div class="col-md-7">
+							<div class="row">
+								<div class="col-md-10">
+									<h2 data-ng-bind="eventmodel.title"></h2>
+								</div>
+								<div class="col-md-1" data-ng-show="authentication.user._id == eventmodel.user._id">
+									<a class="btn btn-primary" href="/#!/events/{{eventmodel._id}}/edit">
+										<i class="glyphicon glyphicon-edit"></i>
+									</a>
+									<a class="btn btn-primary" data-ng-click="remove();">
+										<i class="glyphicon glyphicon-trash"></i>
+									</a>
+								</div>
+								<div class="col-md-1" data-ng-show="authentication.user._id == eventmodel.user._id">
+									<a class="btn btn-primary" href="/#!/events/{{eventmodel._id}}/edit">
+										<i class="glyphicon glyphicon-edit"></i>
+									</a>
+									<a class="btn btn-primary" data-ng-click="remove();">
+										<i class="glyphicon glyphicon-trash"></i>
+									</a>
+								</div>
+							</div>
+							<div class="row">
+								<small class='col-md-12'>
+									<em class="text-muted">
+										Posted on
+										<span data-ng-bind="eventmodel.created | date:'mediumDate'"></span>
+										by
+										<span data-ng-bind="eventmodel.user.displayName"></span>
+									</em>
+								</small>
+							</div>
+              <span><strong>Date:</strong><div data-ng-bind="eventmodel.day"></div></span>
+              <hr>
+							<p data-ng-bind="eventmodel.content"></p>
+          </div>
+        </div>
 
-	</div>
-	
-	
-	<div class="pull-right" data-ng-show="authentication.user._id == eventmodel.user._id">
-		<a class="btn btn-primary" href="/#!/events/{{eventmodel._id}}/edit">
-			<i class="glyphicon glyphicon-edit"></i>
-		</a>
-		<a class="btn btn-primary" data-ng-click="remove();">
-			<i class="glyphicon glyphicon-trash"></i>
-		</a>
-	</div>
-	<small>
-		<em class="text-muted">
-			Posted on
-			<span data-ng-bind="eventmodel.created | date:'mediumDate'"></span>
-			by
-			<span data-ng-bind="eventmodel.user.displayName"></span>
-			
-		</em>
-	</small>
-	<p class="lead" data-ng-bind="eventmodel.conteant"></p>
-</section>
+				<div id="event-map">
+				</div>
+			</div>
+  	</div>
+  </div>
+</div>
