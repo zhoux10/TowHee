@@ -25,7 +25,7 @@ angular.module('maps').controller('MapsController', ['$http', '$scope', '$stateP
 	    		$scope.position = {longitude: longitude, latitude: latitude};
 				$scope.loadInfomation();
 			}
-		
+
 			// Set up event listeners for slider
 			$('#slider').on( 'click', function (_event) {
 				$scope.loadInfomation();
