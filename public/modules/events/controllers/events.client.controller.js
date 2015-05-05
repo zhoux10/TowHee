@@ -93,17 +93,16 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 					};
 
 			$scope.map = new google.maps.Map(document.getElementById('event-map'), mapOptions);
-			$scope.createMarker(longitude, latitude);
+			$scope.createMarker(longitude, latitude, event.title);
 		};
 
-		$scope.createMarker = function (longitude, latitude){
+		$scope.createMarker = function (longitude, latitude, title){
 	    var infoWindow = new google.maps.InfoWindow();
 			var marker = new google.maps.Marker({
 				map: $scope.map,
 				position: new google.maps.LatLng(latitude, longitude),
-				title: "<a href='https://www.google.com/maps/dir/Current+Location/" + latitude + "," + longitude + "'>Get Directions</a>"
 			});
-			infoWindow.setContent("<h2><a href='#' id='infoWindowContent>Get Directions</a></h2>");
+			infoWindow.setContent("<a href='https://www.google.com/maps/dir/Current+Location/" + latitude + "," + longitude + "' id='infoWindowContent'>Get Directions to " + title + "</a>");
 			infoWindow.open($scope.map, marker);
 		};
 	}
