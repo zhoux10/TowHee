@@ -32,7 +32,8 @@
 									</em>
 								</small>
 							</div>
-              <span><strong>Date:</strong><div data-ng-bind="eventmodel.day"></div></span>
+              <span><strong>Date:</strong><div data-ng-bind="eventmodel.day | date:'mediumDate'"></div></span>
+              <span data-ng-show="eventmodel.signupUrl"><strong>Sign Up:</strong><a href="{{eventmodel.signupUrl}}"><div data-ng-bind="eventmodel.signupUrl"></div></a></span>
               <hr>
 							<p data-ng-bind="eventmodel.content"></p>
           </div>
