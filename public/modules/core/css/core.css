@@ -37,7 +37,7 @@ body.ng-cloak
 	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
-#pac-input, #slider {
+#pac-input {
 	background-color: #fff;
 	font-family: Roboto;
 	font-size: 15px;
