@@ -68,6 +68,8 @@ body.ng-cloak
 
 #infoWindowContent {
     position: relative !important;
+		top: 0;
+		left: 0;
 		margin: 0px !important;
 }
 
