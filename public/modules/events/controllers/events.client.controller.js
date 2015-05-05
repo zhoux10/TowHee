@@ -4,11 +4,18 @@
 angular.module('events').controller('EventsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Events',
 	function($scope, $stateParams, $location, Authentication, Events) {
 		$scope.authentication = Authentication;
-		var	searchBox;
+
 		// Create new Article
+		$scope.setUpGooglePlaces = function () {
+			var	input = document.getElementById('place');
+			if(input) {
+				$scope.searchBox = new google.maps.places.SearchBox(input);
+			}
+		};
+
 		$scope.create = function() {
 
-			var googlePlaces = searchBox.getPlaces(),
+			var googlePlaces = $scope.searchBox.getPlaces(),
 	         location;
 
 	      	if(googlePlaces) {
@@ -52,9 +59,7 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 					}
 				}
 			} else {
-				$scope.eventmodel.$remove(function() {
-					$location.path('eventmodels');
-				});
+				$scope.eventmodel.$remove();
 			}
 		};
 
