@@ -102,7 +102,7 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 				map: $scope.map,
 				position: new google.maps.LatLng(latitude, longitude),
 			});
-			infoWindow.setContent("<a href='https://www.google.com/maps/dir/Current+Location/" + latitude + "," + longitude + "' id='infoWindowContent'>Get Directions to " + title + "</a>");
+			infoWindow.setContent("<a href='https://www.google.com/maps/dir/Current+Location/" + latitude + "," + longitude + "' id='infoWindowContent'>Directions to " + title + "</a>");
 			infoWindow.open($scope.map, marker);
 		};
 	}
