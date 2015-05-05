@@ -1,4 +1,4 @@
-<div ng-app="mapsApp" ng-controller="MapsController">
+<div ng-app="mapsApp" ng-controller="MapsController" data-ng-init="createMapPage()">
   <div class="row">
     <div class="col-xs-10 col-md-6">
       <input id='pac-input' type="text" name="zipcode" class='zipcode-input controls'>
@@ -6,9 +6,10 @@
     <div class="col-xs-12 col-md-6">
      <slider
       ng-model="initialrad"
-      floor="1.00"
-      ceiling="10000.00"
-      step="1000.00">
+      floor="0.00"
+      ceiling="50.00"
+      step="1.00"
+      id='slider'>
   </slider>
     </div>
   </div>
