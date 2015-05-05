@@ -7,6 +7,9 @@ TowHee is a beautiful small bird :)
 - bower install
 - brew install mongodb
 
+Also include angular-slider.min.css from here https://github.com/prajwalkman/angular-slider
+
+
 ** Start up server**
 - sudo mongod
 - node server.js (in separate tab)
