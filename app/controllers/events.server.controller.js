@@ -12,6 +12,7 @@ var mongoose = require('mongoose'),
  * Create a article
  */
 exports.create = function(req, res) {
+	console.log(req.body);
 	var eventmodel = new Event(req.body);
 	eventmodel.user = req.user;
 

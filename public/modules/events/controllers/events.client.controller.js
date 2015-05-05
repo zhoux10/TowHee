@@ -9,32 +9,36 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 		$scope.create = function() {
 
 			var googlePlaces = searchBox.getPlaces(),
-          location;
+	         location;
 
-      if(googlePlaces) {
-      	var longitude = googlePlaces[0].geometry.location.lng(),
-						latitude = googlePlaces[0].geometry.location.lat();
-				location = [longitude, latitude];
-		   }
+	      	if(googlePlaces) {
+	      		var longitude = googlePlaces[0].geometry.location.lng(),
+							latitude = googlePlaces[0].geometry.location.lat();
+					location = [longitude, latitude];
+			   }
 
-			// Create new Article object
-			var eventmodel = new Events({
-				title: this.title,
-				content: this.content,
-				location: location
-			});
+				// Create new Article object
+				console.log(this);
+				var eventmodel = new Events({
+					title: this.title,
+					content: this.content,
+					location: location,
+					day: this.day,
+					imageUrl: this.imageUrl,
+					signupUrl: this.signupUrl
+				});
 
 
-			// Redirect after save
-			eventmodel.$save(function(response) {
-				$location.path('events/' + response._id);
+				// Redirect after save
+				eventmodel.$save(function(response) {
+					$location.path('events/' + response._id);
 
-				// Clear form fields
-				$scope.title = '';
-				$scope.content = '';
-			}, function(errorResponse) {
-				$scope.error = errorResponse.data.message;
-			});
+					// Clear form fields
+					$scope.title = '';
+					$scope.content = '';
+				}, function(errorResponse) {
+					$scope.error = errorResponse.data.message;
+				});
 		};
 
 		// Remove existing Article

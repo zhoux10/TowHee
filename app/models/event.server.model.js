@@ -20,6 +20,10 @@ var EventSchema = new Schema({
 		trim: true,
 		required: 'Title cannot be blank'
 	},
+	day: {
+		type:Date,
+		default: ''
+	},
 	content: {
 		type: String,
 		default: '',
@@ -28,6 +32,12 @@ var EventSchema = new Schema({
 	location: {
 		type:Array,
 		default: []
+	},
+	signupUrl :{
+		type:String
+	},
+	imageUrl :{
+		type:String
 	},
 	user: {
 		type: Schema.ObjectId,
