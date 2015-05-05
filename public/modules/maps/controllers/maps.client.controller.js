@@ -61,22 +61,25 @@ angular.module('maps').controller('MapsController', ['$http', '$scope', '$stateP
 
     $scope.createMap = function(data) {
 			var mapOptions = {
-        zoom: 4,
-        center: new google.maps.LatLng(40.0000, -98.0000),
-        mapTypeId: google.maps.MapTypeId.TERRAIN
-		   };
+				zoom: 12,
+				center: new google.maps.LatLng($scope.position.latitude, $scope.position.longitude),
+				mapTypeId: google.maps.MapTypeId.TERRAIN
+			};
 
 			$scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
-	    $scope.infoWindow = new google.maps.InfoWindow();
-			$scope.latlngbounds = new google.maps.LatLngBounds();
-			$scope.markers = [];
 
-			for (var i = 0; i < data.length; i++){
-				$scope.createMarker(data[i]);
+			if (data.length > 0) {
+		    $scope.infoWindow = new google.maps.InfoWindow();
+				$scope.latlngbounds = new google.maps.LatLngBounds();
+				$scope.markers = [];
+
+				for (var i = 0; i < data.length; i++){
+					$scope.createMarker(data[i]);
+				}
+
+				$scope.map.setCenter($scope.latlngbounds.getCenter());
+				$scope.map.fitBounds($scope.latlngbounds);
 			}
-
-			$scope.map.setCenter($scope.latlngbounds.getCenter());
-			$scope.map.fitBounds($scope.latlngbounds);
 		};
 
 		$scope.createMarker = function (info){
@@ -93,8 +96,8 @@ angular.module('maps').controller('MapsController', ['$http', '$scope', '$stateP
 			$scope.latlngbounds.extend(myLatLng);
 
       google.maps.event.addListener(marker, 'click', function(){
-          infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
-          infoWindow.open($scope.map, marker);
+          $scope.infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
+          $scope.infoWindow.open($scope.map, marker);
       });
 
 			$scope.markers.push(marker);
