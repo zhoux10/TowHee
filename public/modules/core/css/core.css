@@ -70,6 +70,7 @@ body.ng-cloak
 		top: 0;
 		left: 0;
 		margin: 0px !important;
+		text-align: left !important;
 }
 
 h2 {
