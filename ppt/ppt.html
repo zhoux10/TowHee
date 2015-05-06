@@ -41,8 +41,7 @@
     <section class="slide" id='intro'>
     <div>
       <hgroup>
-        <h1>TowHee</h1>
-        <h2>Find volunteering events nearby!</h2>
+        <h2>TowHee - Find awesome volunteering events nearby!</h2>
       </hgroup>
       <p>
         <div>A <span class='event-info'>NodeNight</span> release</div>
@@ -59,29 +58,31 @@
     </div>
   </section>
 
-    <section class="slide" id="how-to-overview">
+    <section class="slide" id="background">
       <h2>Background</h2>
       <img src="img/volunteer_hard.png" alt="typical volunteer site" />
     </section>
 
-    <section class="slide" id="quick-start">
-      <h2>TowHee - MEAN Stack[ss]</h2>
-      <p>When you <a href="https://github.com/imakewebthings/deck.js/archive/latest.zip">download</a> deck.js, it will include a file named <code>boilerplate.html</code>. You can immediately start editing slides in this page and viewing them in your web browser. Later on, when you are comfortable customizing the deck, you can edit the various pieces of the boilerplate or make your own to suit your needs.</p>
+    <section class="slide" id="stack">
+      <h2>TowHee - Volunteering events near by!</h2>
+      <p>Built on <a href="#">MEAN</a> stack</p>
+      <img src="img/screenshot.png"/>
     </section>
 
-     <section class="slide" id="how-to-overview">
+     <section class="slide" id="features">
       <h2>Features</h2>
       <ol>
-        <li>MongoDB geospatial query</li>
-        <li>Google Maps API</li>
-        <li>Google places</li>
+        <li class="slide">MongoDB geospatial query</li>
+        <li class="slide">Google Maps API</li>
+        <li class="slide">Google places</li>
       </ol>
     </section>
 
-    <section class="slide" id="markup">
+    <section class="slide" id="mongo">
       <h2>MongoDB</h2>
       <p>Slides are just HTML elements with a class of <code>slide</code>.</p>
       <pre><code>
+  db.events.createIndex({ location : "2dsphere" });    
   db.events.find({
     location: {
         $near: {
@@ -99,7 +100,7 @@
       </code></pre>
     </section>
 
-     <section class="slide" id="markup">
+     <section class="slide" id="googlemaps">
       <h2>Google API's</h2>
       <p>Slides are just HTML elements with a class of <code>slide</code>.</p>
       <pre><code>&lt;section class=&quot;slide&quot;&gt;
@@ -119,101 +120,11 @@
     </section>
 
     <section class="slide" id="demo">
-      Demo time!
+      <h1>Demo time!</h1>
     </section>
 
-    <section class="slide" id="demo">
-      Thank you
-    </section>
-
-
-    <section class="slide" id="themes">
-      <h2>Style Themes</h2>
-      <p>Customizes the colors, typography, and layout of slide&nbsp;content.</p>
-      <pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;/path/to/css/style-theme.css&quot;&gt;</code></pre>
-      <h2>Transition Themes</h2>
-      <p>Defines transitions between slides using CSS3 transitions.  Less capable browsers fall back to cutaways. But <strong>you</strong> aren&rsquo;t using <em>those</em> browsers to give your presentations, are&nbsp;you&hellip;</p>
-      <pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;/path/to/css/transition-theme.css&quot;&gt;</code></pre>
-    </section>
-
-    <section class="slide" id="extensions">
-      <h2>Extensions</h2>
-      <p>Core gives you basic slide functionality with left and right arrow navigation, but you may want more. Here are the ones included in this&nbsp;deck:</p>
-
-      <ul>
-        <li class="slide" id="extensions-goto">
-          <strong>deck.goto</strong>: Adds a shortcut key to jump to any slide number.  Hit g, type in the slide number, and hit&nbsp;enter.
-        </li>
-
-        <li class="slide" id="extensions-menu">
-          <strong>deck.menu</strong>: Adds a menu view, letting you see all slides in a grid. Hit m to toggle to menu view, continue navigating your deck, and hit m to return to normal view. Touch devices can double-tap the deck to switch between&nbsp;views.
-        </li>
-
-        <li class="slide" id="extensions-navigation">
-          <strong>deck.navigation</strong>: Adds clickable left and right buttons for the less keyboard&nbsp;inclined.
-        </li>
-
-        <li class="slide" id="extensions-status">
-          <strong>deck.status</strong>: Adds a page number indicator. (current/total)
-        </li>
-
-        <li class="slide" id="extensions-scale">
-          <strong>deck.scale</strong>: Scales each slide to fit within the deck container using CSS Transforms for those browsers that support them.
-        </li>
-      </ul>
-
-      <p class="slide" id="extension-folders">Each extension folder in the download package contains the necessary JavaScript, CSS, and HTML&nbsp;files. For a complete list of extension modules included in deck.js, check out the&nbsp;<a href="http://imakewebthings.github.com/deck.js/docs">documentation</a>.</p>
-    </section>
-
-    <section class="slide" id="nested">
-      <h2>Nested Slides</h2>
-      <p>That last slide had a few steps.  To create substeps in slides, just nest them:</p>
-      <pre><code>&lt;section class=&quot;slide&quot;&gt;
-  &lt;h2&gt;Extensions&lt;/h2&gt;
-  &lt;p&gt;Core gives you basic slide functionality...&lt;/p&gt;
-  &lt;ul&gt;
-    &lt;li class=&quot;slide&quot;&gt;
-      &lt;h3&gt;deck.goto&lt;/h3&gt;
-      &lt;p&gt;Adds a shortcut key to jump to any slide number...&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li class=&quot;slide&quot;&gt;...&lt;/li&gt;
-    &lt;li class=&quot;slide&quot;&gt;...&lt;/li&gt;
-    &lt;li class=&quot;slide&quot;&gt;...&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/section&gt;</code></pre>
-    </section>
-
-    <section class="slide" id="elements-images">
-      <h2>Other Elements: Images</h2>
-      <img src="http://placekitten.com/600/375" alt="Kitties">
-      <pre><code>&lt;img src=&quot;http://placekitten.com/600/375&quot; alt=&quot;Kitties&quot;&gt;</code></pre>
-    </section>
-
-    <section class="slide" id="elements-blockquotes">
-      <h2>Other Elements: Blockquotes</h2>
-      <blockquote cite="http://example.org">
-        <p>Food is an important part of a balanced diet.</p>
-        <p><cite>Fran Lebowitz</cite></p>
-      </blockquote>
-      <pre><code>&lt;blockquote cite=&quot;http://example.org&quot;&gt;
-  &lt;p&gt;Food is an important part of a balanced diet.&lt;/p&gt;
-  &lt;p&gt;&lt;cite&gt;Fran Lebowitz&lt;/cite&gt;&lt;/p&gt;
-&lt;/blockquote&gt;</code></pre>
-    </section>
-
-
-    <section class="slide" id="elements-videos">
-      <h2>Other Elements: Video Embeds</h2>
-      <p>Embed videos from your favorite online video service or with an HTML5 video&nbsp;element.</p>
-
-      <iframe src="http://player.vimeo.com/video/1063136?title=0&amp;byline=0&amp;portrait=0" width="400" height="225" frameborder="0"></iframe>
-
-      <pre><code>&lt;iframe src=&quot;http://player.vimeo.com/video/1063136?title=0&amp;amp;byline=0&amp;amp;portrait=0&quot; width=&quot;400&quot; height=&quot;225&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;</code></pre>
-    </section>
-
-    <section class="slide" id="digging-deeper">
-      <h2>Digging Deeper</h2>
-      <p>If you want to learn about making your own themes, extending deck.js, and more, check out the&nbsp;<a href="../docs/">documentation</a>.</p>
+    <section class="slide" id="last">
+      <h1>Thank you</h1>
     </section>
 
     <!-- deck.navigation snippet -->
