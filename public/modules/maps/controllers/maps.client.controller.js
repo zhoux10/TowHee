@@ -90,7 +90,7 @@ angular.module('maps').controller('MapsController', ['$http', '$scope', '$stateP
 	      title: "<a href='http://localhost:3000/#!/events/"+ info._id + "'>" + info.title + "</a>"
       });
 
-      marker.content = '<div class="infoWindowContent">' + info.content + '</div><br/><img src=' + info.imageUrl + '>';
+      marker.content = '<div class="infoWindowContent">' + info.content + '</div><br/><img width="160px" src=' + info.imageUrl + '>';
 
 			// fit this marker in the map
 			var myLatLng = new google.maps.LatLng(info.location[1], info.location[0]);
