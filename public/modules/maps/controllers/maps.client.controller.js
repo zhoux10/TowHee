@@ -50,8 +50,8 @@ angular.module('maps').controller('MapsController', ['$http', '$scope', '$stateP
 		};
 
 		$scope.setPositionToCalifornia = function () {
-			var latitude = 37.0000,
-					longitude = -120.0000;
+			var latitude = 37.7833,
+					longitude = -122.4167;
 			$scope.position = {longitude: longitude, latitude: latitude};
 			$scope.loadInfomation();
 		};
