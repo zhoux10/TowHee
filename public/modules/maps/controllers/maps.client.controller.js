@@ -54,7 +54,7 @@ angular.module('maps').controller('MapsController', ['$http', '$scope', '$stateP
 					longitude = $scope.position.longitude,
 					radius = $scope.initialrad;
 
-			$http.get('http://localhost:3000/nearby?lng=' + longitude + '&lat=' + latitude + '&radius=' + radius).success(function(data){
+			$http.get('nearby?lng=' + longitude + '&lat=' + latitude + '&radius=' + radius).success(function(data){
 				$scope.createMap(data);
 				$scope.showSpinner = false;
 			});
@@ -87,7 +87,7 @@ angular.module('maps').controller('MapsController', ['$http', '$scope', '$stateP
 		  var marker = new google.maps.Marker({
 	      map: $scope.map,
 	      position: new google.maps.LatLng(info.location[1], info.location[0]),
-	      title: "<a href='http://localhost:3000/#!/events/"+ info._id + "'>" + info.title + "</a>"
+	      title: "<a href='#!/events/"+ info._id + "'>" + info.title + "</a>"
       });
 
       marker.content = '<div class="infoWindowContent">' + info.content + '</div><br/><img width="160px" src=' + info.imageUrl + '>';
