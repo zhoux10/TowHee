@@ -13,17 +13,18 @@ angular.module('maps').controller('MapsController', ['$http', '$scope', '$stateP
 					longitude;
 
 		 	if (navigator.geolocation) {
-	      		navigator.geolocation.getCurrentPosition(function (position) {
-					latitude = position.coords.latitude;
-					longitude = position.coords.longitude;
-		    		$scope.position = {longitude: longitude, latitude: latitude};
-					$scope.loadInfomation();
-	      });
+	      navigator.geolocation.getCurrentPosition(
+					// Set position to navigator's position upon success
+					function (position) {
+						latitude = position.coords.latitude;
+						longitude = position.coords.longitude;
+			    	$scope.position = {longitude: longitude, latitude: latitude};
+						$scope.loadInfomation();
+	      	},
+					// Set position to California upon fail
+					$scope.setPositionToCalifornia);
 			} else {
-				latitude = 1;
-				longitude = 1;
-	    		$scope.position = {longitude: longitude, latitude: latitude};
-				$scope.loadInfomation();
+				$scope.setPositionToCalifornia();
 			}
 
 			// Set up event listeners for slider
@@ -46,6 +47,13 @@ angular.module('maps').controller('MapsController', ['$http', '$scope', '$stateP
 					$scope.loadInfomation();
 				}
 			});
+		};
+
+		$scope.setPositionToCalifornia = function () {
+			var latitude = 37.0000,
+					longitude = -120.0000;
+			$scope.position = {longitude: longitude, latitude: latitude};
+			$scope.loadInfomation();
 		};
 
 		$scope.loadInfomation = function () {
