@@ -30,3 +30,5 @@ Also include angular-slider.min.css from here https://github.com/prajwalkman/ang
 - No screening of signup emails
 - Articles are mixed in with events functionality
 - slider and google places input not showing up properly
+- Facebook integration
+- Filter by date (only show events in the future)
