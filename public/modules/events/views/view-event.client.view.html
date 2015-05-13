@@ -33,7 +33,8 @@
 								</small>
 							</div>
               <span><strong>Date:</strong><div data-ng-bind="eventmodel.day | date:'mediumDate'"></div></span>
-              <span><strong>Sign Up:</strong><a href="{{eventmodel.signupUrl}}" id='infoWindowContent'><div data-ng-bind="eventmodel.signupUrl"></div></a></span>
+              <span data-ng-show="authentication.user._id"><strong>Sign Up:</strong> <a href="{{eventmodel.signupUrl}}" id='infoWindowContent'><div data-ng-bind="eventmodel.signupUrl"></div></a></span>
+              <span data-ng-hide="authentication.user._id"><strong>Sign Up:</strong> Please <a href="#!/signin" id='infoWindowContent'>log in</a> to sign up for event</span>
               <hr>
 							<p data-ng-bind="eventmodel.content"></p>
           </div>
