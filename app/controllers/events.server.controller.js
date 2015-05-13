@@ -9,7 +9,7 @@ var mongoose = require('mongoose'),
 	_ = require('lodash');
 
 /**
- * Create a article
+ * Create a event
  */
 exports.create = function(req, res) {
 	var eventmodel = new Event(req.body);
@@ -27,14 +27,14 @@ exports.create = function(req, res) {
 };
 
 /**
- * Show the current article
+ * Show the current event
  */
 exports.read = function(req, res) {
 	res.json(req.eventmodel);
 };
 
 /**
- * Update a article
+ * Update an event
  */
 exports.update = function(req, res) {
 	var eventmodel = req.eventmodel;
@@ -53,7 +53,7 @@ exports.update = function(req, res) {
 };
 
 /**
- * Delete an article
+ * Delete an event
  */
 exports.delete = function(req, res) {
 	var eventmodel = req.eventmodel;

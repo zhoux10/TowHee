@@ -36,3 +36,4 @@ Also include angular-slider.min.css from here https://github.com/prajwalkman/ang
 - Shorten Long descriptions
 - Repeating events
 - Store name and long/lat of event
+- Identify each event uniquely ie Event + DateTime

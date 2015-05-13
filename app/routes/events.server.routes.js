@@ -20,6 +20,6 @@ module.exports = function(app) {
 		.put(users.requiresLogin, events.hasAuthorization, events.update)
 		.delete(users.requiresLogin, events.hasAuthorization, events.delete);
 
-	// Finish by binding the article middleware
+	// Finish by binding the events middleware
 	app.param('eventId', events.eventmodelByID);
 };
