@@ -20,7 +20,7 @@
 				</div>
 				<div class="col-md-1">
 				</div>
-				<div class="form-group col-md-4" >
+				<div class="form-group col-md-4" ng-class="{ 'has-error': eventForm.location.$dirty && eventForm.location.$invalid }">
 					<label class="control-label" for="location">Location</label>
 					<div class="controls">
 						<input name="location" type="text" data-ng-model="place" id="place" class="form-control" placeholder="Location" required>
@@ -28,7 +28,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="form-group col-md-9">
+				<div class="form-group col-md-9" ng-class="{ 'has-error': eventForm.content.$dirty && eventForm.content.$invalid }">
 					<label class="control-label" for="content">Content</label>
 					<div class="controls">
 						<textarea name="content" data-ng-model="content" id="content" class="form-control" cols="30" rows="5" placeholder="Content"></textarea>
@@ -36,7 +36,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="form-group col-md-4" >
+				<div class="form-group col-md-4" ng-class="{ 'has-error': eventForm.signupUrl.$dirty && eventForm.signupUrl.$invalid }">
 					<label class="control-label" for="signupUrl">SignUp Url</label>
 					<div class="controls">
 						<input name="signupUrl" type="text" data-ng-model="signupUrl" class="form-control" placeholder="Sign-Up Url" required>
@@ -44,7 +44,7 @@
 				</div>
 				<div class="col-md-1">
 				</div>
-				<div class="form-group col-md-4" >
+				<div class="form-group col-md-4" ng-class="{ 'has-error': eventForm.imageUrl.$dirty && eventForm.imageUrl.$invalid }">
 					<label class="control-label" for="imageUrl">Image Url</label>
 					<div class="controls">
 						<input name="imageUrl" type="text" data-ng-model="imageUrl" class="form-control" placeholder="Image Url" required>
