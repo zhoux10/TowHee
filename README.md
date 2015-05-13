@@ -29,6 +29,10 @@ Also include angular-slider.min.css from here https://github.com/prajwalkman/ang
 - Events cannot be edited
 - No screening of signup emails
 - Articles are mixed in with events functionality
-- slider and google places input not showing up properly
 - Facebook integration
 - Filter by date (only show events in the future)
+- upload images
+- Select multiple days
+- Shorten Long descriptions
+- Repeating events
+- Store name and long/lat of event
