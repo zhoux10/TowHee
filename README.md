@@ -1,4 +1,4 @@
-TowHee is a beautiful small bird :)
+TowHee is a beautiful small bird :) See a presentation of the app and some of its features here: [http://www.cssherry.com/TowHee](http://www.cssherry.com/TowHee)
 
 ** Setup **
 
