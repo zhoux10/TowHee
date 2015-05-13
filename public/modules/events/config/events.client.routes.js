@@ -1,9 +1,9 @@
 'use strict';
 
 // Setting up route
-angular.module('articles').config(['$stateProvider',
+angular.module('events').config(['$stateProvider',
 	function($stateProvider) {
-		// Articles state routing
+		// Events state routing
 		$stateProvider.
 		state('listEvents', {
 			url: '/events',
