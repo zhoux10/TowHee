@@ -88,7 +88,7 @@ exports.list = function(req, res) {
  * Event middleware
  */
 exports.eventmodelByID = function(req, res, next, id) {
-	console.log('I am here!!!!!!!!!!!');
+
 	if (!mongoose.Types.ObjectId.isValid(id)) {
 		return res.status(400).send({
 			message: 'Event is invalid'
@@ -124,17 +124,11 @@ exports.eventsnearby = function(req, res){
        }}, function(err,response)
     {
       var data = response;
-
-      /*
-      console.log('I am here!!!!')
-      console.log(data);
-      console.log(lat,lng);
-      */
       res.send(data);
   });
 };
 /**
- * Article authorization middleware
+ * Event authorization middleware
  */
 exports.hasAuthorization = function(req, res, next) {
 	if (req.eventmodel.user.id !== req.user.id) {
