@@ -1,8 +1,8 @@
 'use strict';
 
 // Articles controller
-angular.module('events').controller('EventsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Events',
-	function($scope, $stateParams, $location, Authentication, Events) {
+angular.module('events').controller('EventsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Events', '$http',
+	function($scope, $stateParams, $location, Authentication, Events, $http) {
 		$scope.authentication = Authentication;
 
 		// Create new Article
@@ -51,7 +51,7 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 		// Remove existing Article
 		$scope.remove = function(eventmodel) {
 			if (eventmodel) {
-				eventmodel.$remove();
+				eventmodel.delete(eventmodel._id);
 
 				for (var i in $scope.eventmodels) {
 					if ($scope.eventmodels[i] === eventmodel) {
@@ -59,8 +59,19 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 					}
 				}
 			} else {
-				$scope.eventmodel.$remove();
+				$scope.delete($scope.eventmodel._id);
 			}
+			$location.path('maps/view');
+		};
+
+		$scope.delete = function (eventId) {
+			$http.delete('/events/' + eventId)
+            .success(function(data) {
+							console.log('Success: ' + data);
+            })
+            .error(function(data) {
+                console.log('Error: ' + data);
+            });
 		};
 
 		// Update existing Article

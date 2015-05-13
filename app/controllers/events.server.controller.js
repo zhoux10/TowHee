@@ -12,7 +12,6 @@ var mongoose = require('mongoose'),
  * Create a article
  */
 exports.create = function(req, res) {
-	console.log(req.body);
 	var eventmodel = new Event(req.body);
 	eventmodel.user = req.user;
 
@@ -113,7 +112,7 @@ exports.eventsnearby = function(req, res){
 	lng = req.query.lng;
 	radius = req.query.radius;
 
-	var maxD = radius * 1609.34;	
+	var maxD = radius * 1609.34;
   Event.find({location :
         { $near :
            {
