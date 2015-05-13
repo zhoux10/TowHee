@@ -31,7 +31,6 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 			   }
 
 				// Create new Event object
-				console.log(this);
 				var eventmodel = new Events({
 					title: this.title,
 					content: this.content,
