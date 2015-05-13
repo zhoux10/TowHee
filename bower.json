@@ -4,7 +4,7 @@
 	"description": "Find volunteers near you! Built with <3 using MEANJS",
 	"dependencies": {
 		"bootstrap": "~3",
-		"angular": "~1.2",
+		"angular": "~1.3",
 		"angular-resource": "~1.2",
 		"angular-animate": "~1.2",
 		"angular-mocks": "~1.2",
@@ -14,5 +14,8 @@
 		"angular-ui-router": "~0.2.11",
 		"angular-touch": "latest",
 		"venturocket-angular-slider":"latest"
-	}
+	},
+  "resolutions": {
+    "angular": "~1.3.x"
+  }
 }
