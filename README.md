@@ -25,4 +25,7 @@ Also include angular-slider.min.css from here https://github.com/prajwalkman/ang
   - sudo mkdir -p /data/db/
   - sudo chown `id -u` /data/db
 
-**Testing**
+**Remaining Issues**
+- Events cannot be deleted or edited
+- No screening of signup emails
+- Articles are mixed in with events functionality
