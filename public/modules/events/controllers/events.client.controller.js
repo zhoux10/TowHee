@@ -1,11 +1,17 @@
 'use strict';
 
-// Articles controller
+// Events controller
 angular.module('events').controller('EventsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Events', '$http',
 	function($scope, $stateParams, $location, Authentication, Events, $http) {
 		$scope.authentication = Authentication;
 
-		// Create new Article
+		// Edit event
+		$scope.setupEditForm = function () {
+			$scope.findOne();
+			$scope.setUpGooglePlaces();
+		};
+
+		// Create new Event
 		$scope.setUpGooglePlaces = function () {
 			var	input = document.getElementById('place');
 			if(input) {
@@ -24,7 +30,7 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 					location = [longitude, latitude];
 			   }
 
-				// Create new Article object
+				// Create new Event object
 				console.log(this);
 				var eventmodel = new Events({
 					title: this.title,
@@ -48,7 +54,7 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 				});
 		};
 
-		// Remove existing Article
+		// Remove existing Event
 		$scope.remove = function(eventmodel) {
 			if (eventmodel) {
 				eventmodel.delete(eventmodel._id);
@@ -74,23 +80,25 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
             });
 		};
 
-		// Update existing Article
+		// Update existing Event
 		$scope.update = function() {
 			var eventmodel = $scope.eventmodel;
 
-			eventmodel.$update(function() {
-				$location.path('events/' + eventmodel._id);
-			}, function(errorResponse) {
-				$scope.error = errorResponse.data.message;
-			});
+			$http.post('/events/' + eventmodel._id, {body: eventmodel})
+					 .success(function() {
+							$location.path('events/' + eventmodel._id);
+						})
+					 .error(function (errorResponse) {
+							$scope.error = errorResponse.data.message;
+					 });
 		};
 
-		// Find a list of Articles
+		// Find a list of Events
 		$scope.find = function() {
 			$scope.events = Events.query();
 		};
 
-		// Find existing Article
+		// Find existing Event
 		$scope.findOne = function() {
 			$scope.eventmodel = Events.get({
 				eventId: $stateParams.eventId
